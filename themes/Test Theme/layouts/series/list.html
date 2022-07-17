@@ -1,0 +1,5 @@
+{{define "main"}}
+{{ range $name, $taxonomy := .Site.Taxonomies.series }}
+<li><a href="{{ "series/" | relLangURL }}{{ $name | urlize }}">{{ .Page.Title }} ({{ .Count }})</a></li>
+{{ end }}
+{{end}}

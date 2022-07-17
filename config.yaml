@@ -1,0 +1,26 @@
+baseURL: 'https://localhost:1313'
+languageCode: sr
+title: Test
+description: 
+theme: Test Theme
+DefaultContentLanguage: sr
+
+enableRobotsTXT: true
+disableHugoGeneratorInject: true
+permalinks:
+  blog: /blog/:year/:month/:slug
+taxonomies:
+  author: authors
+  tag: tags
+  serie: series
+languages:
+  sr:
+    languageName: српски језик
+    weight: 1
+    contentDir: content/sr
+    title: Тест 
+  en:
+    languageName: English
+    weight: 2
+    contentDir: content/en
+    title: Test

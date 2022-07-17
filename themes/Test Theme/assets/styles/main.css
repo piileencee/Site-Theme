@@ -1,0 +1,15 @@
+:root {
+    --color-0: #2C2354;
+    --color-1: #272968;
+    --color-2: #6633CC;
+    --color-3: #EBE4F8;
+}
+
+body {
+    color: var(--color-0);
+    font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a {
+    color: var(--color-2)
+}
