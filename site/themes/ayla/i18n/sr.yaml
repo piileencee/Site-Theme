@@ -1,0 +1,16 @@
+- id: author
+  translation: "Аутор"
+
+- id: tags
+  translation: "Ознаке"
+
+- id: article
+  translation:
+    zero: чланака
+    one: чланак
+    two: чланака
+    many: чланака
+    other: чланака
+
+- id: this_article_is_part_of_series
+  translation: "Овај чланак је део серијала"

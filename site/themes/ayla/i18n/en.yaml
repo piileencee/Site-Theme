@@ -1,0 +1,19 @@
+- id: author
+  translation:
+    zero: Author
+    one: Author
+    two: Authors
+    other: Authors
+
+- id: tags
+  translation: "Tags"
+
+- id: article
+  translation:
+    zero: article
+    one: article
+    two: articles
+    other: articles
+
+- id: this_article_is_part_of_series
+  translation: "This article is a part of series"

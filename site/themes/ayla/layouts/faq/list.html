@@ -1,0 +1,27 @@
+{{ define "structuredData" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{{ range $key, $value := .Pages }}
+  {
+    "@type": "Question",
+    "name": "{{ .Title }}",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "{{ .Content | plainify }}"
+    }
+  }{{ if ne $key (sub (len $.Pages) 1) }}, {{ else }}{{ end }}{{ end }}]
+}
+</script>
+{{ end }}
+{{define "main"}}
+<h1>{{.Page.Title}}</h1>
+<ul>
+  {{ range .Pages}}
+  <li>
+    <a href="{{.Permalink}}"> {{.Title}}</a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

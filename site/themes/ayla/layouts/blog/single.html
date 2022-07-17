@@ -1,0 +1,51 @@
+{{define "main"}}
+<h1>{{.Title}}</h1>
+<p>{{ i18n "tags"}}</p>
+<div>
+  <ul>
+    {{ range (.GetTerms "tags") }}
+    <a href="{{ .Permalink }}">{{- .LinkTitle -}}</a>
+    {{ end }}
+  </ul>
+</div>
+{{ .Content }}
+<h3>{{i18n "author"}}</h3>
+
+{{ partial "author.html" . }}
+
+<h3>{{i18n "this_article_is_part_of_series"}}
+  {{ range (.GetTerms "series") }}
+  <a href="{{ .Permalink }}"> {{ .Title }} </a>
+  {{ end }}
+</h3>
+{{ end }}
+{{ define "structuredData" }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title }},
+  "image": {{ .Params.featuredImage | absURL }},
+  "datePublished": {{ .PublishDate }},
+  "dateModified": {{ .Lastmod }},
+  "mainEntityOfPage": { "@type": "WebPage" },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ .Site.Params.header }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ .Site.Params.logo }}
+    }
+  },
+  "description": {{ .Summary | plainify | safeHTML }},
+  "keywords": [{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}],
+  "author" : [{{range  $key, $value := .GetTerms "authors"}}
+    {
+      "@type":"Person", 
+      "name":{{.Page.Title}} 
+    }{{ if ne $key (sub (len ($.GetTerms "authors")) 1) }}, {{ else }}{{ end }}{{ end }}
+  ]  
+}
+</script>
+{{end}}

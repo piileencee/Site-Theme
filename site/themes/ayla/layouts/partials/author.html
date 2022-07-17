@@ -1,0 +1,8 @@
+<div>
+    {{ if isset .Params "authors" }}
+        {{ range (.GetTerms "authors") }}
+            <a href="{{ .Permalink }}"> {{ .Title }} </a>
+            {{ .Content }}
+        {{ end }}     
+    {{ end }}
+</div>

@@ -1,0 +1,11 @@
+{{define "main"}}
+<h1>{{ .Title }}</h1>
+<p>{{ .Params.description }}</p>
+
+<h3>All articles tagged with {{ .Title }}</h3>
+{{ range .Pages }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+{{end}}
